@@ -120,9 +120,35 @@ ORDER BY PriceVariance DESC
 -- From this we can conclude that we have multiple products that have a high variance based on their Average Sales Price by Category (Outliers)
 
 
-SELECT p1.[Product Name] AS Product1, p2.[Product Name] AS Product2, p1.[Brand Name], p1.rating
-FROM [dbo].[vwBigBasketProducts] AS p1
-JOIN [dbo].[vwBigBasketProducts] AS p2 
-ON p1.[Brand Name] = p2.[Brand Name]
-AND p1.rating = p2.rating
-AND p1.[Product Name] <> p2.[Product Name];
+-- Rank Products by Discount Percentage within Each Category
+-- Calculate the discount percentage for each product, then rank products within each category based on the discount.
+-- Only view Top 5 Products which are highgly discounted based on their Category
+WITH DiscountPerc AS (
+    SELECT [Brand Name], Category, [Product Name], 
+           (([Market Price] - [Sale Price]) / [Market Price]) * 100 AS DisPerc
+    FROM [dbo].[vwBigBasketProducts]
+),
+RankedDiscounts AS (
+    SELECT [Brand Name], Category, [Product Name], 
+           CAST(DisPerc AS DECIMAL(5,2)) AS DiscountPercentage, 
+           DENSE_RANK() OVER (PARTITION BY Category ORDER BY DisPerc DESC) AS DenseRank
+    FROM DiscountPerc
+)
+SELECT [Brand Name], Category, [Product Name], DiscountPercentage
+FROM RankedDiscounts
+WHERE DenseRank < 6
+ORDER BY Category, DenseRank;
+
+
+-- Find Top 3 Most Expensive Products within Each Sub-category
+-- Rank products within each Sub-Category by their sale price, and then retrieve the top 3 Products per Sub-Category
+WITH RankSalePrice AS (
+	SELECT [Brand Name], [Sub Category], [Product Name], [Sale Price],
+	ROW_NUMBER() OVER (PARTITION BY [Sub Category] ORDER BY [Sale Price] DESC) AS RowRank
+    FROM [dbo].[vwBigBasketProducts]
+)
+SELECT [Brand Name], [Sub Category], [Product Name], [Sale Price]
+FROM RankSalePrice
+WHERE RowRank < 4
+ORDER BY [Sub Category], RowRank
+-- Here we are using ROW_NUMBER and not DENSE_RANK because we want to inlcude Top 3 products and not Top 3 All Products
