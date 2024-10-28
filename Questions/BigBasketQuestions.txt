@@ -1,0 +1,17 @@
+This dashboard offers a comprehensive view of our product data, allowing you to analyze and compare product categories, brands, and pricing trends. Here’s what you can uncover:
+
+1. What are the top 5 categories by the number of products listed?
+2. What is the price difference between sale price and market price across brands? (Fetch the top 10 discounted brand)
+3. What are the top-rated products by category? (Fetch the top 5 rated products by their category)
+4. Which sub-categories offer the largest discounts? (Fetch the top 10 discounted brand)
+5. Analyze where the highest sale-to-market price reductions are happening (Calculate the least reduced price between the sale price and market price, so we will look into the category and sub category and fetch the top 5 least discounted products)
+6. What are the most common brands across product categories?
+7. Determine which brands are dominating in terms of product count? (Fetch the Top 5 brands with the most number of products)
+8. What percentage of products have a rating above 4.0?
+9. What is the correlation between product ratings and price discounts?
+10. Identify Products with Similar Pricing within the Same Category (Find pairs of Products within the same Category where the sale price difference is within a specified range (e.g., within 10 units). This can reveal similar Products priced close to each other)
+11. Find Categories with the Most Price Variation (Calculate the average sale price for each category, then use this to compare individual products within each category to identify high price variance)
+12. Rank Products by Discount Percentage within Each Category (alculate the discount percentage for each product, then rank products within each category based on the discount)
+13. Find Top 3 Most Expensive Products within Each Sub-category (Rank products within each Sub-Category by their sale price, and then retrieve the top 3 Products per Sub-Category)
+
+With these insights, you can easily spot popular products, top-rated items, and the best deals, helping you make informed decisions and spot trends quickly.
