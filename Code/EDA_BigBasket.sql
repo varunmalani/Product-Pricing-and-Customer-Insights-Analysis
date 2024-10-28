@@ -33,7 +33,7 @@ ORDER BY 2 ASC
 
 
 -- Analyze where the highest sale-to-market price reductions are happening
--- In this we need to calculated the least reducded price between the sale price and market price, so we will look into the category and sub category and fetch the top 5 least discounted products
+-- In this we need to calculated the least reduced price between the sale price and market price, so we will look into the category and sub category and fetch the top 5 least discounted products
 SELECT TOP 5 Category, [Sub Category], CAST(AVG([Sale Price] - [Market Price]) AS DECIMAL(10,2)) AS DiscountedPrice
 FROM [dbo].[vwBigBasketProducts]
 GROUP BY Category, [Sub Category]
@@ -47,7 +47,7 @@ GROUP BY [Brand Name], Category
 ORDER BY 3 DESC
 
 
--- Determine which brands are dominating in terms of product count
+-- Determine which brands are dominating in terms of product count?
 -- Fetching the Top 5 brands with the most number of products
 SELECT TOP 5 [Brand Name], COUNT(DISTINCT [Product Name]) AS ProductCount
 FROM [dbo].[vwBigBasketProducts]
@@ -106,7 +106,7 @@ WHERE (a.[Sale Price] - b.[Sale Price]) <= 10 AND (b.[Sale Price] - a.[Sale Pric
 
 
 -- Find Categories with the Most Price Variation
---Calculate the average sale price for each category, then use this to compare individual products within each category to identify high price variance.
+-- Calculate the average sale price for each category, then use this to compare individual products within each category to identify high price variance.
 WITH CategoryAvg AS (
 	SELECT Category, AVG([Sale Price]) AS AvgSalePrice
 	FROM [dbo].[vwBigBasketProducts]
