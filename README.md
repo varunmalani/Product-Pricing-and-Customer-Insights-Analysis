@@ -52,3 +52,11 @@ The Power BI dashboard highlights:
 4. Power BI Report:
 
    - Open the Power BI file in the Dashboard/ folder and refresh data connections to view updated visualizations.
+  
+## Power BI Dashboard Preview
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d52d353b-3720-447a-a4d2-c0ad66ef1071" alt="Image Description" width="400"/>
+</p>
+
+
