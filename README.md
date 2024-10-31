@@ -56,7 +56,7 @@ The Power BI dashboard highlights:
 ## Power BI Dashboard Preview
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d52d353b-3720-447a-a4d2-c0ad66ef1071" alt="Image Description" width="400"/>
+  <img src="https://github.com/user-attachments/assets/9436a7da-efb3-4eb3-a56d-5b1aa4d3782e" alt="Image Description" width="1000" height="350"/>
 </p>
 
 
