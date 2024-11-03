@@ -41,15 +41,15 @@ The Power BI dashboard highlights:
    ```bash
    git clone https://github.com/varunmalani/Product-Pricing-and-Customer-Insights-Analysis.git
 
-2. Data Preparation:
+2. **Data Preparation**:
 
    - Load the data from the Dataset/ folder into the SQL database and perform transformations using the SQL scripts in Code/. Can also refer to the questions that this project is trying to solved from the Questions/ folder
 
-3. Run SQL Analysis:
+3. **Run SQL Analysis**:
 
    - Execute SQL scripts in the Code/ folder in your SQL environment to generate insights.
 
-4. Power BI Report:
+4. **Power BI Report**:
 
    - Open the Power BI file in the Dashboard/ folder and refresh data connections to view updated visualizations.
   
